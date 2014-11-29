@@ -30,6 +30,7 @@ private String couleur;
 		return valeur;
 	}
 	public String toString(){
+		//System.out.println("valeur en chiffre : "+ this.valeur);
 		return("Sept"+" de "+this.couleur);
 	}
 

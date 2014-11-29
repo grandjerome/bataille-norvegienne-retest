@@ -30,6 +30,7 @@ public enum couleurCarte{coeur,carreau,pique,trefle};
 		return valeur;
 	}
 	public String toString(){
+		//System.out.println("valeur en chiffre : "+ this.valeur);
 		return("Huit"+" de "+this.couleur);
 	}
 }

@@ -190,43 +190,43 @@ public class Carte {
 		String nom=null;
 		switch(valeur){
 		case 1:
-			nom="As";
-			break;
-		case 2:
 			nom="Deux";
 			break;
-		case 3:
+		case 2:
 			nom="Trois";
 			break;
-		case 4:
+		case 3:
 			nom="Quatre";
 			break;
-		case 5:
+		case 4:
 			nom="Cinq";
 			break;
-		case 6:
+		case 5:
 			nom="Six";
 			break;
-		case 7:
+		case 6:
 			nom="Sept";
 			break;
-		case 8:
+		case 7:
 			nom="Huit";
 			break;
-		case 9:
+		case 8:
 			nom="Neuf";
 			break;
-		case 10:
+		case 9:
 			nom="Dix";
 			break;
-		case 11:
+		case 10:
 			nom="Valet";
 			break;
-		case 12:
+		case 11:
 			nom="Dame";
 			break;
-		case 13:
+		case 12:
 			nom="Roi";
+			break;
+		case 13:
+			nom="As";
 			break;
 		
 		}
@@ -234,6 +234,7 @@ public class Carte {
 	}
 	
 	public String toString(){
+		//System.out.println("valeur en chiffre : "+ this.valeur);
 		return(chiffreEnNom(this.valeur)+" de "+this.couleur);
 	}
 	
