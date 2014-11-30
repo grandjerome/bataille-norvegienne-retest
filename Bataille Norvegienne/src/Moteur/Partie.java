@@ -49,6 +49,7 @@ public class Partie {
 	public void debutPartie() {
 		Scanner sc = new Scanner(System.in);
 		Scanner sc2 = new Scanner(System.in);
+		Scanner sc3 = new Scanner(System.in);
 		System.out.println("Combien voulez vous de joueur virtuels (1 -> *)");
 		int nbJoueur = sc.nextInt();
 		this.nombreJoueurVirtuel=nbJoueur;
@@ -105,6 +106,17 @@ public class Partie {
 				//System.out.println(carte.getCouleur() + " " + carte.getValeur());
 				}
 		}
+				
+		System.out.println("Voulez vous echanger des cartes? (oui ou non)");
+		String reponse = sc3.nextLine();
+		if (reponse.equals("oui") ){
+			 listJoueur.get(0).echangerCarte(listJoueur.get(0));
+		}
+		else if (reponse.equals("non")) {
+			System.out.println("la partie commence");		
+		}
+	
+
 	}
 	public void deroulementPartie(){
 		while (this.nbJoueurEnJeu != 1 || JoueurEnJeu){
