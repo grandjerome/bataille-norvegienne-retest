@@ -30,13 +30,39 @@ public class Joueur {
 	}
 	
 	public Joueur(String nom){
-		this.nomJoueur=nom;
-		
-			
+		this.nomJoueur=nom;			
 	}
 	
-	public void echangerCarte() {
-
+	public void echangerCarte(Joueur joueur) {
+		Scanner sc = new Scanner(System.in);
+		Scanner sc2 = new Scanner(System.in);
+		Scanner sc3 = new Scanner(System.in);
+		System.out.println("Combien de cartes voulez vous changer? (De 1 à 3)");
+		int nbCartesAEchanger = sc.nextInt();
+		for (int i=0;i<nbCartesAEchanger;i++){
+			System.out.println("Carte a échanger n°"+(i+1));
+			System.out.println("quelle carte voulez vous echanger parmi : ");
+			System.out.println("main :");
+			for (int j=0;j<main.size();j++){
+				System.out.println("numero "+ (j+1) +" "+ main.get(j));
+			}
+			int numCarteAEchanger = sc2.nextInt()-1;
+			Carte carteAEchanger = main.get(numCarteAEchanger);
+			System.out.println("Avec quelle carte de la face visible parmi : ");
+			System.out.println("face visible :");
+			ArrayList<Carte> list = new ArrayList<Carte>( faceVisible );
+			for (int j=0;j<main.size();j++){
+				System.out.println("numero "+ (j+1) +" "+ list.get(j));
+			}
+			int numCarteAEchangerFaceVisible = sc3.nextInt()-1;
+			Carte carteAEchangerFaceVisible = list.get(numCarteAEchangerFaceVisible);
+			main.remove(numCarteAEchanger);
+			main.add(carteAEchangerFaceVisible);
+			list.remove(numCarteAEchangerFaceVisible);
+			list.add(carteAEchanger);
+			System.out.println("Vous avez échangé "+carteAEchanger+" et "+carteAEchangerFaceVisible);
+			faceVisible = new HashSet<Carte>(list);
+			}
 	}
 	public void creerList(){
 		main = new ArrayList<Carte>();
@@ -54,6 +80,12 @@ public class Joueur {
 	}
 	public HashSet<Carte> getfaceVisible(){
 		return(faceVisible);
+	}
+	public void setfacevisible(ArrayList<Carte> list){
+		faceVisible.removeAll(faceVisible);
+		for (int i=0; i<3; i++){
+			faceVisible.add(list.get(i));
+		}
 	}
 	public boolean poserCarte(ArrayList<Carte> carteaposer,Collection<Carte> collection) { 
 		 boolean cartejouable=carteaposer.get(0).determinerCarteJouable();
@@ -257,4 +289,3 @@ public class Joueur {
 // public Partie getPartie() {
 // return partie;
 // }
-
